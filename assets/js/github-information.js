@@ -6,9 +6,9 @@ function userInformationHTML(user) {
     </span>
 </h2>
 <div class class="gh-content">
-  <div class="gh-avater"> 
-     <a href=${user.html_user} target="_blank">
-     <img src="${user.avater_url} width="80" height="80" alt= "${user.login}" />
+  <div class="gh-avatar"> 
+     <a href="${user.html_user}" target="_blank">
+     <img src="${user.avatar_url}" width="80" height="80" alt= "${user.login}" />
      </a>
   </div>
         <p>Followers: ${user.followers} - Following: ${user.following} <br> Repos:${user.public_repos}</p>
@@ -26,7 +26,7 @@ function fetchGitHubInformation(event) {
 </div>`);
 
     $.when(
-        $.getJSON(`https://api.github.com/users.${username}`)
+        $.getJSON(`https://api.github.com/users/${username}`)
     ).then(
         function (response) {
             let userData = response;
